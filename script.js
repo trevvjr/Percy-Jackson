@@ -1505,17 +1505,51 @@ const scenes = {
     }
 };
 
+const sceneAliases = {
+    escapeUseChoas: 'escapeToCamp',
+    reportSuccess2: 'reportSuccess',
+    perfightKronos: 'ultimateBattle',
+    teamSneak: 'teamSneakIn',
+    justSurrender: 'surrender',
+    confrontDirect: 'confrontKronosDirectly'
+};
+
+function resolveSceneId(sceneId) {
+    if (scenes[sceneId]) {
+        return sceneId;
+    }
+
+    const aliasSceneId = sceneAliases[sceneId];
+    if (aliasSceneId && scenes[aliasSceneId]) {
+        return aliasSceneId;
+    }
+
+    if (scenes.ultimateBattle) {
+        return 'ultimateBattle';
+    }
+
+    return 'start';
+}
+
 
 function displayScene(sceneId) {
-    const scene = scenes[sceneId];
+    const resolvedSceneId = resolveSceneId(sceneId);
+    const scene = scenes[resolvedSceneId];
+
+    if (resolvedSceneId !== sceneId) {
+        console.warn('Missing scene resolved:', sceneId, '->', resolvedSceneId);
+        currentSceneId = resolvedSceneId;
+    }
+
     if (!scene) {
-        console.error('Scene not found:', sceneId);
+        console.error('Scene not found:', resolvedSceneId);
         return;
     }
     
     const storyText = document.getElementById('storyText');
     const choicesContainer = document.getElementById('choicesContainer');
     
+    storyText.style.color = '';
     storyText.textContent = scene.text;
     choicesContainer.innerHTML = '';
     
