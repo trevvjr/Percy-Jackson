@@ -767,6 +767,31 @@ const scenes = {
         text: `You stand before Kronos, the moment of ultimate truth. Neither of you says anything. There's no need.\n\nSwords clash. Power explodes. The ground trembles.\n\n✨ YOU DEFEATED KRONOS! ✨\n\nWith the Titan Lord fallen, his forces crumble. Camp Half-Blood is saved. You are a hero—not just to camp, but to the entire demigod world.`,
         choices: []
     },
+
+    seaKingVictory: {
+        text: `The waters of the Labyrinth rise to your command. The chamber floods, the floor trembles, and the ocean itself answers your call.\n\nKronos fights against a tide he cannot control. The sea closes over him in a final, crushing wave.\n\n✨ THE SEA KING WINS! ✨\n\nYou prove that Poseidon's blood is more than legend—it is the power that can save the world.`,
+        choices: []
+    },
+
+    allianceVictory: {
+        text: `You stand with your allies—Annabeth, Grover, Tyson, the Nereids, and the campers who came to your aid. Their courage supports your strength.\n\nTogether, you strike as a single force. Kronos falls beneath the combined power of friendship, strategy, and divine blood.\n\n✨ ALLIANCE OF HEROES! ✨\n\nThe Labyrinth shakes once more, but this time it trembles at the sound of your victory.`,
+        choices: []
+    },
+
+    shadowVictory: {
+        text: `You move like a ghost through the Labyrinth, unseen and unnoticed. Every step is calculated. Every strike lands exactly where it should.\n\nBefore Kronos can react, the battle is over. His power is broken by precision, patience, and your refusal to give him an opening.\n\n✨ THE SILENT STRIKE! ✨\n\nYou win not with noise, but with absolute control.`,
+        choices: []
+    },
+
+    sacrificeVictory: {
+        text: `You hold the line long enough for everyone else to escape. Every wound is another price paid for victory.\n\nWhen you finally drive the final blow through Kronos's defenses, you collapse beside the battlefield—but not before the world is saved.\n\n✨ HEROIC SACRIFICE! ✨\n\nYour name becomes legend, and the camp remembers the price of peace.`,
+        choices: []
+    },
+
+    finalProphecy: {
+        text: `You speak the truth of the prophecy aloud, and it seems the world itself listens. Your courage, your pain, your choices—all of it converges here.\n\nKronos falls beneath a storm of divine will, and the prophecy finally ends in your favor.\n\n✨ THE PROPHECY IS FULFILLED! ✨\n\nThe demigod world enters a new age—one shaped by your victory.`,
+        choices: []
+    },
     
     finishWeakKronos: {
         text: `Kronos, weakened by the Labyrinth's destruction and Daedalus's sacrifice, is vulnerable.\n\nYou strike true, one final blow. The Titan Lord falls.\n\n✨ VICTORY! ✨\n\nWith Kronos defeated and the Labyrinth destroyed, peace returns to the world. Your name will be sung for all time.`,
@@ -847,26 +872,26 @@ const scenes = {
     singleCombatDirectly: {
         text: `You stand before Kronos, sword drawn, ready for one-on-one combat. The Titan Lord accepts your challenge with a grim smile.\n\nSwords clash in an epic battle. Your determination and youth against his ancient power.`,
         choices: [
-            { text: "⚔️ Press every advantage you have", next: 'ultimateBattle', health: -30 },
-            { text: "💪 Channel Poseidon's power for divine strength", next: 'ultimateBattle', health: -25 },
-            { text: "🌊 Use water control in the chamber", next: 'ultimateBattle', health: -20 }
+            { text: "⚔️ Press every advantage you have", next: 'shadowVictory', health: -30 },
+            { text: "💪 Channel Poseidon's power for divine strength", next: 'seaKingVictory', health: -25 },
+            { text: "🌊 Use water control in the chamber", next: 'finalProphecy', health: -20 }
         ]
     },
 
     waterWar: {
         text: `You prepare the throne chamber as your battlefield, filling it with water from hidden pools and magical fountains.\n\nKronos is at a disadvantage in your element. The water courses through your veins, but weakens his ancient form.`,
         choices: [
-            { text: "💧 Drown him with overwhelming water", next: 'ultimateBattle', health: -20 },
-            { text: "🌊 Use water currents to immobilize him", next: 'ultimateBattle', health: -25 },
-            { text: "⚡ Strike while he's vulnerable", next: 'ultimateBattle', health: -15 }
+            { text: "💧 Drown him with overwhelming water", next: 'seaKingVictory', health: -20 },
+            { text: "🌊 Use water currents to immobilize him", next: 'finalProphecy', health: -25 },
+            { text: "⚡ Strike while he's vulnerable", next: 'shadowVictory', health: -15 }
         ]
     },
 
     unleashAll: {
         text: `You pour every ounce of your godly power into one final, catastrophic attack. The entire fortress shakes. Water explodes everywhere. Your divine heritage burns through your veins like lightning.\n\nIt's too much power, and it consumes you as much as it consumes him.`,
         choices: [
-            { text: "💥 Annihilate Kronos completely", next: 'ultimateBattle', health: -40 },
-            { text: "⚰️ Accept the mutual destruction", next: 'ultimateBattle', health: -50 }
+            { text: "💥 Annihilate Kronos completely", next: 'seaKingVictory', health: -40 },
+            { text: "⚰️ Accept the mutual destruction", next: 'sacrificeVictory', health: -50 }
         ]
     },
 
@@ -891,9 +916,9 @@ const scenes = {
     chargeAsOne: {
         text: `Your team charges into Kronos's chamber as one unified force. The synchronization of your movements is perfect. You move like a single warrior split across four brilliant minds.\n\nKronos stands against impossible odds.`,
         choices: [
-            { text: "⚔️ Focus fire on the Titan Lord", next: 'ultimateBattle', health: -25 },
-            { text: "🎯 Strike at his weak points simultaneously", next: 'ultimateBattle', health: -20 },
-            { text: "💪 Let Tyson lead the charge", next: 'ultimateBattle', health: -15 }
+            { text: "⚔️ Focus fire on the Titan Lord", next: 'allianceVictory', health: -25 },
+            { text: "🎯 Strike at his weak points simultaneously", next: 'shadowVictory', health: -20 },
+            { text: "💪 Let Tyson lead the charge", next: 'finalProphecy', health: -15 }
         ]
     },
 
@@ -1156,9 +1181,9 @@ const scenes = {
     coordinatedDivine: {
         text: `You and your team unleash coordinated divine power. Your godly heritage burns bright. Together, you are a force of nature.\n\nKronos has never faced anything like this.`,
         choices: [
-            { text: "⚡ Strike with divine power", next: 'ultimateBattle', health: -25 },
-            { text: "💪 Overwhelm him with divinity", next: 'ultimateBattle', health: -30 },
-            { text: "🌊 Finish him with your combined power", next: 'ultimateBattle', health: -35 }
+            { text: "⚡ Strike with divine power", next: 'allianceVictory', health: -25 },
+            { text: "💪 Overwhelm him with divinity", next: 'finalProphecy', health: -30 },
+            { text: "🌊 Finish him with your combined power", next: 'seaKingVictory', health: -35 }
         ]
     },
 
